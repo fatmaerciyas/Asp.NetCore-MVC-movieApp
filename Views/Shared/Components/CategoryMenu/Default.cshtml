@@ -1,0 +1,17 @@
+@model IEnumerable<Category>
+
+<div class="list-group">
+
+    <a href="/"
+        class="list-group-item list-group-item-action active">Tüm Kategoriler
+    </a>
+
+    @foreach (var item in Model)
+    {
+        <a asp-controller = "Home" asp-action = "Index" asp-route-id = "@item.Id" 
+        class="list-group-item list-group-item-action @(ViewBag.SelectedCategory == item.Id.ToString()?" active ":"")">@item.Name
+        </a>
+    }
+    
+    
+</div>
